@@ -9,6 +9,8 @@ etc., seconds apart.
 Example: for [“a”, “b”, “c”, “d”], “a” is printed 1 second after the code runs, “b” is printed 2
 seconds after the code runs, “c” is printed 4 seconds after the code runs, etc.
 
+![image](./img/flex-layout.png)
+
 3) Write the necessary React code for generating the below figure (using flex).
 
 4) Write an efficient method that tells us whether or not an input string brackets ("{", "}",
