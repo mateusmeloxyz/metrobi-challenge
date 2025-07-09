@@ -13,3 +13,9 @@ To run the Jest tests:
    ```bash
    npm test
    ```
+
+If you wan to run the tests on this single folder:
+
+  ```bash
+  npm test Q1
+  ```
