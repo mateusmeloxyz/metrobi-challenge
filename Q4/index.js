@@ -1,0 +1,41 @@
+function isValidString(inputString) {
+  // This function validates weather the brackets of a given input string opened and closed properly
+  //
+  // eg.: "({[()]})" returns true
+  // and "({[)]})" returns false
+  //
+  // an empty string "" also returns true
+  const stack = [];
+  const reference = {
+    "(": ")",
+    "{": "}",
+    "[": "]",
+  };
+
+  for (let char of inputString) {
+    // if is an open bracket, push char into the stack
+    if (reference[char]) {
+      stack.push(char);
+
+      // if the stack is not empty and
+      // the current char is a closing bracket from the previous character in the stack,
+      // pop the character from the stack
+    } else if (
+      stack.length > 0 &&
+      reference[stack[stack.length - 1]] === char
+    ) {
+      stack.pop();
+    } else {
+      // if the character is not found in the reference,
+      // return false
+      return false;
+    }
+  }
+
+  // the string was fully traversed.
+  // if the stack is empty, return true
+  return stack.length === 0;
+}
+
+console.log(isValidString("({[()]})")); // this should return true
+console.log(isValidString("({[)]})")); // this should return false
