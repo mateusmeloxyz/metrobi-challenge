@@ -32,7 +32,7 @@ function App() {
             }}
           >
             <Box bgcolor="#54D4EB" sx={{ flexGrow: 1 }}>
-              Header
+              <h1>Header</h1>
             </Box>
             <Box
               sx={{
@@ -57,10 +57,10 @@ function App() {
                     }}
                   >
                     <Box bgcolor="#D7C9E3" sx={{ flexGrow: 1 }}>
-                      Hero
+                      <h1>Hero</h1>
                     </Box>
                     <Box bgcolor="#9FC363" sx={{ flexGrow: 2 }}>
-                      Sidebar
+                      <h1>Sidebar</h1>
                     </Box>
                   </Stack>
                 </Box>
@@ -73,10 +73,10 @@ function App() {
                     }}
                   >
                     <Box bgcolor="#F5C632" sx={{ flexGrow: 2 }}>
-                      Main Content
+                      <h1>Main Content</h1>
                     </Box>
                     <Box bgcolor="#898989" sx={{ flexGrow: 1 }}>
-                      Extra Content
+                      <h1>Extra Content</h1>
                     </Box>
                   </Stack>
                 </Box>
@@ -92,15 +92,15 @@ function App() {
                 }}
               >
                 <Box bgcolor="#2AB676" sx={{ flexGrow: 2 }}>
-                  Related Images
+                  <h1>Related Images</h1>
                 </Box>
                 <Box bgcolor="#F3CCDE" sx={{ flexGrow: 1 }}>
-                  Related Posts
+                  <h1>Related Posts</h1>
                 </Box>
               </Stack>
             </Box>
             <Box bgcolor="#FEA500" sx={{ flexGrow: 1 }}>
-              Footer
+              <h1>Footer</h1>
             </Box>
           </Stack>
         </Box>
