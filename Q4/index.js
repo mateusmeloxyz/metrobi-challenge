@@ -1,10 +1,16 @@
 function isValidString(inputString) {
-  // This function validates weather the brackets of a given input string opened and closed properly
+  // This function validates whether the brackets of a given input string opened and closed properly
   //
   // eg.: "({[()]})" returns true
   // and "({[)]})" returns false
   //
   // an empty string "" also returns true
+
+  // Handle edge cases for non-string inputs
+  if (typeof inputString !== "string") {
+    return false;
+  }
+
   const stack = [];
   const reference = {
     "(": ")",
@@ -37,5 +43,5 @@ function isValidString(inputString) {
   return stack.length === 0;
 }
 
-console.log(isValidString("({[()]})")); // this should return true
-console.log(isValidString("({[)]})")); // this should return false
+// Export the function for testing
+module.exports = { isValidString };
