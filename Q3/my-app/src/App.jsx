@@ -1,6 +1,7 @@
 import "./App.css";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Stack, Box, CssBaseline } from "@mui/material";
+import ColorBox from "./components/ColorBox";
 
 const theme = createTheme({
   components: {
@@ -31,9 +32,7 @@ function App() {
               gap: 2,
             }}
           >
-            <Box bgcolor="#54D4EB" sx={{ flexGrow: 1 }}>
-              <h1>Header</h1>
-            </Box>
+            <ColorBox bgcolor="#54D4EB" sx={{ flexGrow: 1 }} title="Header" />
             <Box
               sx={{
                 flexGrow: 7,
@@ -56,12 +55,16 @@ function App() {
                       alignItems: "stretch",
                     }}
                   >
-                    <Box bgcolor="#D7C9E3" sx={{ flexGrow: 1 }}>
-                      <h1>Hero</h1>
-                    </Box>
-                    <Box bgcolor="#9FC363" sx={{ flexGrow: 2 }}>
-                      <h1>Sidebar</h1>
-                    </Box>
+                    <ColorBox
+                      bgcolor="#D7C9E3"
+                      sx={{ flexGrow: 1 }}
+                      title="Hero"
+                    />
+                    <ColorBox
+                      bgcolor="#9FC363"
+                      sx={{ flexGrow: 2 }}
+                      title="Sidebar"
+                    />
                   </Stack>
                 </Box>
                 <Box sx={{ flexGrow: 2, flexBasis: 2 }}>
@@ -72,12 +75,16 @@ function App() {
                       alignItems: "stretch",
                     }}
                   >
-                    <Box bgcolor="#F5C632" sx={{ flexGrow: 2 }}>
-                      <h1>Main Content</h1>
-                    </Box>
-                    <Box bgcolor="#898989" sx={{ flexGrow: 1 }}>
-                      <h1>Extra Content</h1>
-                    </Box>
+                    <ColorBox
+                      bgcolor="#F5C632"
+                      sx={{ flexGrow: 2 }}
+                      title="Main Content"
+                    />
+                    <ColorBox
+                      bgcolor="#898989"
+                      sx={{ flexGrow: 1 }}
+                      title="Extra Content"
+                    />
                   </Stack>
                 </Box>
               </Stack>
@@ -91,17 +98,19 @@ function App() {
                   flexDirection: "row",
                 }}
               >
-                <Box bgcolor="#2AB676" sx={{ flexGrow: 2 }}>
-                  <h1>Related Images</h1>
-                </Box>
-                <Box bgcolor="#F3CCDE" sx={{ flexGrow: 1 }}>
-                  <h1>Related Posts</h1>
-                </Box>
+                <ColorBox
+                  bgcolor="#2AB676"
+                  sx={{ flexGrow: 2 }}
+                  title="Related Images"
+                />
+                <ColorBox
+                  bgcolor="#F3CCDE"
+                  sx={{ flexGrow: 1 }}
+                  title="Related Posts"
+                />
               </Stack>
             </Box>
-            <Box bgcolor="#FEA500" sx={{ flexGrow: 1 }}>
-              <h1>Footer</h1>
-            </Box>
+            <ColorBox bgcolor="#FEA500" sx={{ flexGrow: 1 }} title="Footer" />
           </Stack>
         </Box>
       </ThemeProvider>
