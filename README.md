@@ -35,3 +35,25 @@ Example:
 carrotTypes = [{kg: 5, price: 100}, {kg: 7, price: 150}, {kg: 3, price: 70}]
 capacity = 36 //kg
 getMaxValue(carrotTypes, capacity)
+
+## How to run the Tests
+
+To run the Jest tests:
+
+1. Install the dependencies:
+
+   ```bash
+   npm install
+   ```
+
+2. Run the tests:
+
+   ```bash
+   npm test
+   ```
+
+3. If you wan to run the test suit on any single folder, run `npm test <folder_name>`. For example:
+
+   ```bash
+   npm test Q4
+   ```
