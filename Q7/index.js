@@ -12,6 +12,47 @@ function displayMatrix(matrix) {
 }
 
 function getMaxValue(carrotTypes, capacity) {
+  // Input validations
+  if (!Array.isArray(carrotTypes)) {
+    throw new Error("carrotTypes must be an array");
+  }
+
+  if (carrotTypes.length === 0) {
+    return 0; // If no carrot types, max value is 0
+  }
+
+  if (
+    typeof capacity !== "number" ||
+    capacity < 0 ||
+    !Number.isInteger(capacity)
+  ) {
+    throw new Error("capacity must be a non-negative integer");
+  }
+
+  // Validate each carrot type has valid weight and price
+  for (const carrot of carrotTypes) {
+    if (typeof carrot !== "object" || carrot === null) {
+      throw new Error("Each carrot type must be an object");
+    }
+
+    if (
+      typeof carrot.weight !== "number" ||
+      carrot.weight <= 0 ||
+      !Number.isInteger(carrot.weight)
+    ) {
+      throw new Error("Each carrot type must have a positive integer weight");
+    }
+
+    if (typeof carrot.price !== "number" || carrot.price < 0) {
+      throw new Error("Each carrot type must have a non-negative price");
+    }
+  }
+
+  // If capacity is 0, return 0
+  if (capacity === 0) {
+    return 0;
+  }
+
   // create a 2d array to store the optimal items for each capacity
   // The Array.from is used to create a dynamic array with the number of rows equal to the quantity of carrot types
   // and the number of columns equal to the maximum capacity of the knapsack
@@ -32,30 +73,43 @@ function getMaxValue(carrotTypes, capacity) {
         memo[i][j] = Math.max(
           memo[i - 1][j],
           memo[i][j - carrotTypes[i - 1].weight] + carrotTypes[i - 1].price,
-          memo[i - 1][j - carrotTypes[i - 1].weight] + carrotTypes[i - 1].price,
         );
       }
     }
   }
 
-  displayMatrix(memo);
+  // We'll make the displayMatrix call optional based on a debug flag
+  if (process.env.DEBUG) {
+    displayMatrix(memo);
+  }
+
   return memo[carrotTypes.length][capacity];
 }
 
-const carrotTypes = [
-  { weight: 5, price: 100 },
-  { weight: 7, price: 150 },
-  { weight: 3, price: 70 },
-];
-const capacity = 36; //kg
-console.log(getMaxValue(carrotTypes, capacity));
+// Export functions for testing
+module.exports = {
+  getMaxValue,
+  displayMatrix,
+};
 
-const carrotTypesB = [
-  { weight: 3, price: 2 },
-  { weight: 1, price: 2 },
-  { weight: 3, price: 4 },
-  { weight: 4, price: 5 },
-  { weight: 2, price: 3 },
-];
-const capacityB = 7;
-console.log(getMaxValue(carrotTypesB, capacityB));
+// Example usage when file is run directly
+if (require.main === module) {
+  console.log("Running example cases:");
+  const carrotTypes = [
+    { weight: 5, price: 100 },
+    { weight: 7, price: 150 },
+    { weight: 3, price: 70 },
+  ];
+  const capacity = 36; //kg
+  console.log(`Example 1 result: ${getMaxValue(carrotTypes, capacity)}`);
+
+  const carrotTypesB = [
+    { weight: 3, price: 2 },
+    { weight: 1, price: 2 },
+    { weight: 3, price: 4 },
+    { weight: 4, price: 5 },
+    { weight: 2, price: 3 },
+  ];
+  const capacityB = 7;
+  console.log(`Example 2 result: ${getMaxValue(carrotTypesB, capacityB)}`);
+}
