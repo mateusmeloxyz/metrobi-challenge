@@ -1,0 +1,536 @@
+/* GENERAL STYLES */
+html {
+    background-color: #ddd;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    position: relative;
+    width: 100%;
+}
+.red,
+header strong {
+    color: #cb4e4e;
+}
+.green {
+    color: #24a777;
+}
+.wblue {
+    color: #2583bd;
+}
+.opacity {
+    opacity: 0.5;
+}
+.flex {
+    display: flex;
+}
+.smallfonts {
+    font-size: 0.8em;
+}
+.backapps {
+    display: block;
+    position: fixed;
+    text-decoration: none;
+    height: 40px;
+    width: 40px;
+    top: 10px;
+    left: 10px;
+}
+.backapps::after {
+    content: " ";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-right: 25px solid #2583bd;
+    border-bottom: 15px solid transparent;
+    transition: all 300ms ease-out;
+    opacity: 0.6;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+.backapps::after:hover {
+    border-right-color: #e35583;
+    opacity: 1;
+}
+p {
+    margin-bottom: 10px;
+}
+p:last-of-type {
+    margin-bottom: 0;
+}
+.container {
+    text-align: center;
+    max-width: 500px;
+    margin: 60px auto;
+    background-color: #fff;
+    padding: 40px;
+    -webkit-box-shadow: 0 2px 6px 0 #aaa; /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow: 0 2px 6px 0 #aaa; /* Firefox 3.5 - 3.6 */
+    box-shadow: 0 2px 6px 0 #aaa; /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+.bigcontain {
+    max-width: 1000px;
+}
+.hide,
+.run.hide,
+#restart.hide {
+    display: none;
+}
+.scorekadran {
+    margin-top: 25px;
+}
+.container .scorekadran div,
+.container .scorekadran h3 {
+    font-size: 11px;
+    color: #aaa;
+}
+
+/* HEADER */
+header h1,
+header {
+    margin-bottom: 30px;
+}
+header h1 {
+    font-size: 24px;
+    color: #333;
+}
+header p {
+    font-size: 16px;
+    color: #333;
+}
+header .plus {
+    color: #24a777;
+    font-size: 26px;
+    line-height: 1;
+}
+header .lista {
+    color: #47a2da;
+}
+header a {
+    color: #23a6d5;
+    text-decoration: none;
+    transition: all 300ms ease-out;
+}
+header a:hover {
+    color: #24a777;
+}
+
+/* TOP MENU */
+.topmenu {
+    position: fixed;
+    top: 0;
+    padding-top: 5px;
+    padding-right: 10px;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.navicon {
+    display: block;
+    position: relative;
+    transition: all 300ms ease-out;
+    opacity: 0.8;
+    width: 60px;
+    height: 40px;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 10000;
+}
+.navicon::before,
+.navicon::after {
+    content: " ";
+}
+.navicon::before,
+.navicon::after,
+.navicon span {
+    position: absolute;
+    display: block;
+    left: 20%;
+    background-color: #24a777;
+    width: 60%;
+    height: 10%;
+    transition: all 300ms ease-out;
+}
+.navicon::before {
+    top: 20%;
+}
+.navicon span {
+    top: 45%;
+}
+.navicon::after {
+    top: 70%;
+}
+.opened .navicon::after,
+.opened .navicon::before {
+    top: 25%;
+    left: 47%;
+    background-color: #cb4e4e;
+    width: 8%;
+    height: 50%;
+    transform: rotate(45deg);
+    transform-origin: center center;
+}
+.opened .navicon::after {
+    transform: rotate(-45deg);
+}
+.opened .navicon::before {
+    transform: rotate(45deg);
+}
+.opened .navicon span {
+    width: 0;
+}
+.menu-wrap {
+    background-color: #fff;
+    top: 0;
+    position: fixed;
+    right: -500px;
+    transition: all 300ms ease-out;
+    padding: 0 30px;
+    box-sizing: border-box;
+    width: 470px;
+    height: 100vh;
+    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.2);
+    overflow: auto;
+}
+.menu-wrap ul {
+    padding: 50px 0;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+.menu-wrap li {
+    list-style: none;
+    box-sizing: border-box;
+    width: 50%;
+}
+.menu-wrap a,
+.extras > a:not(.insta) {
+    display: block;
+    text-decoration: none;
+    color: #555;
+    padding: 10px;
+    transition: all 300ms ease-out;
+    font-size: 16px;
+}
+.menu-wrap a:hover,
+.extras > a:not(.insta):hover,
+.menu-wrap .actop a {
+    color: #24a777;
+}
+.opened .menu-wrap {
+    right: 0;
+}
+.extras {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.extras > a {
+    display: block;
+    margin-right: 10px;
+}
+.insta {
+    width: 30px;
+    height: 30px;
+    background-image: url(insta.svg);
+}
+
+/* score & play button section */
+.score {
+    margin: 30px auto;
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+}
+.score .col:first-of-type {
+    margin-top: 5px;
+}
+.score .col:last-of-type {
+    box-sizing: border-box;
+    padding-left: 25px;
+}
+.score li {
+    list-style: none;
+    margin-bottom: 10px;
+    display: flex;
+}
+.score li.notflex {
+    display: block;
+}
+.score li h3,
+.score li div {
+    font-size: 17px;
+    color: #333;
+}
+.score li h3 {
+    margin-right: 5px;
+}
+li.scorekadran {
+    display: block;
+}
+li.scorekadran h3 {
+    margin-right: 0;
+    margin-bottom: 5px;
+}
+
+/* run play button */
+.run {
+    border: none;
+    cursor: pointer;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    background: #cb4e4e;
+    color: #fff;
+    box-shadow: 0 6px #ab3c3c;
+    -webkit-transition: none;
+    -moz-transition: none;
+    transition: none;
+    border-radius: 0 0 5px 5px;
+    font-size: 25px;
+    padding: 35px 25px;
+    margin-top: 5px;
+}
+.run:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.run:before {
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+}
+.run:hover {
+    box-shadow: 0 4px #ab3c3c;
+    top: 2px;
+}
+.run:active {
+    box-shadow: 0 0 #ab3c3c;
+    top: 6px;
+}
+
+.botbuts button {
+    padding: 10px 4px;
+    font-size: 10px;
+    margin: 0 4px;
+    display: inline-block;
+    border: none;
+    outline: 2px solid #ccc;
+    cursor: pointer;
+    -webkit-transition: outline 300ms ease-out;
+    -moz-transition: outline 300ms ease-out;
+    -o-transition: outline 300ms ease-out;
+    transition: outline 300ms ease-out;
+}
+.botbuts button:hover {
+    outline: 2px solid #24a777;
+}
+
+/* MORE INFO */
+
+.info {
+    display: none;
+    text-align: center;
+    padding-top: 40px;
+}
+.showmore {
+    display: block;
+}
+.info h2 {
+    margin-bottom: 20px;
+    padding-top: 30px;
+    border-top: 1px dashed #ccc;
+    font-size: 22px;
+    color: #2583bd;
+}
+.info p {
+    color: #333;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+.info p:last-of-type {
+    margin-bottom: 0;
+}
+.info a {
+    color: #e35583;
+    text-decoration: none;
+    -webkit-transition: color 300ms ease-out;
+    -moz-transition: color 300ms ease-out;
+    -o-transition: color 300ms ease-out;
+    transition: color 300ms ease-out;
+}
+.info a:hover,
+.info a.clicked {
+    color: #2583bd;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    font-size: 14px;
+    position: fixed;
+    bottom: 2%;
+    right: 2%;
+    opacity: 0.8;
+    -webkit-transition: opacity 300ms ease-out;
+    -moz-transition: opacity 300ms ease-out;
+    -o-transition: opacity 300ms ease-out;
+    transition: opacity 300ms ease-out;
+}
+footer:hover {
+    opacity: 1;
+}
+footer a {
+    text-decoration: none;
+    color: #333;
+    transition: color 300ms ease-out;
+}
+footer a:hover,
+footer a.clicked {
+    color: #2583bd;
+}
+
+/* buy banner */
+.buy {
+    margin: 0 auto 60px;
+    width: 250px;
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 60px;
+}
+.buy > a {
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+.buy > .limg {
+    overflow: hidden;
+    margin-bottom: 10px;
+    display: block;
+    transition: all 2s ease-out;
+    transform: scale(1);
+}
+/*.buy > .limg:hover{
+    transform: scale(1.01);
+}*/
+.buy > .limg img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+.buy > .ltxt {
+    display: inline-block;
+    background-color: #fff;
+    padding: 6px 10px;
+    color: #333;
+    text-decoration: none;
+    transition: all 500ms ease-out;
+}
+.buy > .ltxt:hover {
+    background-color: #eee;
+}
+
+@media all and (max-width: 580px) {
+    .navicon {
+        top: 0;
+        right: 0;
+    }
+    .backapps {
+        top: 0;
+        left: 0;
+    }
+    .topmenu {
+        padding-top: 0;
+        padding-right: 0;
+    }
+    .menu-wrap {
+        width: 100%;
+    }
+    .menu-wrap {
+        right: -110%;
+        padding: 0;
+    }
+    .menu-wrap ul {
+        padding: 30px 0 60px;
+    }
+    .menu-wrap a {
+        font-size: 15px;
+        padding: 7px;
+    }
+    header {
+        margin-bottom: 25px;
+    }
+    header h1 {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+    header .plus {
+        font-size: 20px;
+    }
+    header br {
+        display: none;
+    }
+    header p {
+        font-size: 15px;
+        line-height: 1.3;
+    }
+    .container {
+        padding: 30px 20px;
+        width: 96%;
+        margin: 40px auto 20px;
+        overflow-x: hidden;
+        box-sizing: border-box;
+    }
+    .run {
+        font-size: 20px;
+        padding: 27px 17px;
+    }
+    .score li h3,
+    .score li div {
+        font-size: 15px;
+    }
+    .score li {
+        margin-bottom: 8px;
+    }
+    footer {
+        position: static;
+        text-align: center;
+        margin: 20px 0;
+    }
+    .info {
+        padding-top: 20px;
+    }
+    .info h2 {
+        margin-bottom: 10px;
+        padding-top: 20px;
+        font-size: 16px;
+    }
+    .info p {
+        font-size: 14px;
+    }
+    .buy {
+        margin-bottom: 0;
+    }
+}

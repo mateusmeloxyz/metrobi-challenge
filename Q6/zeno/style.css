@@ -1,0 +1,131 @@
+input {
+    max-width: 100%;
+    font-size: 16px;
+    padding: 5px;
+    border: none;
+    outline: 3px solid #ccc;
+    -webkit-transition: outline 300ms ease-out;
+    -moz-transition: outline 300ms ease-out;
+    -o-transition: outline 300ms ease-out;
+    transition: outline 300ms ease-out;
+    box-sizing: border-box;
+}
+input {
+    display: inline-block;
+}
+.speeds input {
+    width: 60px;
+}
+.speeds {
+    display: flex;
+    justify-content: space-between;
+}
+h2 {
+    font-size: 15px;
+    margin: 20px 0 5px;
+}
+h3 {
+    margin-bottom: 7px;
+    font-size: 16px;
+}
+.hideit {
+    display: none;
+}
+
+label {
+    margin: 30px 0 10px;
+    display: inline-block;
+}
+.small {
+    font-size: 12px;
+}
+.hey1 label,
+.hey2 .speeds label,
+.hey {
+    color: #cb4e4e;
+    font-weight: bold;
+}
+.hey1 input:focus,
+.hey2 .speeds input,
+.hey2 .speeds input:focus {
+    outline: 3px solid #cb4e4e;
+}
+input:focus {
+    outline: 3px solid #24a777;
+}
+.hey > p {
+    display: none;
+    font-size: 15px;
+}
+.hey1 .hey > p:nth-child(1),
+.hey2 .hey > p:nth-child(2) {
+    display: block;
+    margin: 20px 0;
+}
+.graphic {
+    position: relative;
+    margin: 20px;
+    height: 60px;
+    width: calc(100% - 40px);
+    border-bottom: 1px solid #2583bd;
+}
+.achilles,
+.turtle,
+.both {
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    bottom: 0;
+    transform: translateX(-50%);
+    background-size: contain;
+}
+.achilles {
+    background-image: url("achilles.png");
+    width: 50px;
+    height: 65px;
+    opacity: 0.5;
+}
+.turtle {
+    background-image: url("turtle.png");
+    width: 20px;
+    height: 10px;
+    transition: left 500ms ease-out;
+    opacity: 0.5;
+}
+.both {
+    background-image: url("both.png");
+    width: 50px;
+    height: 65px;
+}
+span[class^="point"] {
+    display: block;
+    width: 1px;
+    height: 10px;
+    position: absolute;
+    bottom: -10px;
+    background-color: #2583bd;
+}
+.point1,
+.achilles {
+    left: 0;
+}
+.point2,
+.turtle {
+    left: 80%;
+}
+.point3,
+.both {
+    left: 100%;
+}
+div[class$="-output"] > p {
+    display: inline-block;
+    border-bottom: 3px solid #24a777;
+    padding-bottom: 2px;
+}
+
+@media (max-width: 580px) {
+    .speeds {
+        display: block;
+    }
+}
