@@ -9,7 +9,7 @@ etc., seconds apart.
 Example: for [“a”, “b”, “c”, “d”], “a” is printed 1 second after the code runs, “b” is printed 2
 seconds after the code runs, “c” is printed 4 seconds after the code runs, etc.
 
-3) Write the necessary React code for generating the below figure (using flex).
+3) Write the necessary React code for generating the below figure (using flex) ([live demo](https://metrobi-challenge-ob0xt1ql7-mateusgomes01s-projects.vercel.app/)
 
 ![image](./img/flex-layout.png)
 
