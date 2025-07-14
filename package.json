@@ -58,6 +58,7 @@
     "execa": "^5.1.1",
     "exit": "^0.1.2",
     "expect": "^29.7.0",
+    "expo": "^53.0.19",
     "fast-json-stable-stringify": "^2.1.0",
     "fb-watchman": "^2.0.2",
     "fill-range": "^7.1.1",
@@ -195,7 +196,8 @@
     "yallist": "^3.1.1",
     "yargs": "^17.7.2",
     "yargs-parser": "^21.1.1",
-    "yocto-queue": "^0.1.0"
+    "yocto-queue": "^0.1.0",
+    "expo-dev-client": "~5.2.4"
   },
   "keywords": [],
   "author": "",

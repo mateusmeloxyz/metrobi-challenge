@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "73d4bd93-bc75-4d93-9fcc-732476a29b64"
+      }
+    },
+    "android": {
+      "package": "com.mateus.melo.metrobichallenge"
+    }
+  }
+}
