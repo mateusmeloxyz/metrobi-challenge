@@ -9,7 +9,7 @@ etc., seconds apart.
 Example: for [“a”, “b”, “c”, “d”], “a” is printed 1 second after the code runs, “b” is printed 2
 seconds after the code runs, “c” is printed 4 seconds after the code runs, etc.
 
-3) Write the necessary React code for generating the below figure (using flex) ([live demo](https://metrobi-challenge-ob0xt1ql7-mateusgomes01s-projects.vercel.app/)
+3) Write the necessary React code for generating the below figure (using flex) ([live demo](https://metrobi-challenge-ob0xt1ql7-mateusgomes01s-projects.vercel.app/))
 
 ![image](./img/flex-layout.png)
 
@@ -24,7 +24,7 @@ egg again. Given two eggs, find the highest floor an egg can be dropped from wit
 breaking, with as few drops as possible in the worst-case scenario.
 
 6) Write the code that animates “Zeno's Paradox of Achilles and the Tortoise” on an
-interface(we would like to see the paradox demonstrated).
+interface(we would like to see the paradox demonstrated).([Live demo](https://mateusmeloxyz.github.io/metrobi-challenge/Q6/zeno/))
 
 7) Think that you have an unlimited number of carrots, but a limited number of carrot
 types. Also, you have one bag that can hold a limited weight. Each type of carrot has a
