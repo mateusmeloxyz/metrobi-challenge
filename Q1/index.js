@@ -4,19 +4,17 @@
 
 function findDuplicates(arr) {
   let seenItems = new Set();
-  let duplicatesArr = new Array();
+  let duplicatesSet = new Set();
 
   for (let item of arr) {
     if (seenItems.has(item)) {
-      if (!duplicatesArr.includes(item)) {
-        duplicatesArr.push(item);
-      }
+      duplicatesSet.add(item);
     } else {
       seenItems.add(item);
     }
   }
 
-  return duplicatesArr;
+  return Array.from(duplicatesSet);
 }
 
 // Export the function for testing
