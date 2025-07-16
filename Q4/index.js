@@ -19,6 +19,16 @@ function isValidString(inputString) {
   };
 
   for (let char of inputString) {
+    if (
+      char !== "(" &&
+      char !== ")" &&
+      char !== "{" &&
+      char !== "}" &&
+      char !== "[" &&
+      char !== "]"
+    ) {
+      continue;
+    }
     // if is an open bracket, push char into the stack
     if (reference[char]) {
       stack.push(char);
@@ -32,8 +42,7 @@ function isValidString(inputString) {
     ) {
       stack.pop();
     } else {
-      // if the character is not found in the reference,
-      // return false
+      // for any other case, return false
       return false;
     }
   }

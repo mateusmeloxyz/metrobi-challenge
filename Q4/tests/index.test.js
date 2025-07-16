@@ -94,18 +94,18 @@ describe("isValidString Function Tests", () => {
   });
 
   describe("Non-Bracket Characters", () => {
-    test("should return false for non-bracket characters", () => {
-      expect(isValidString("a")).toBe(false);
-      expect(isValidString("1")).toBe(false);
-      expect(isValidString(" ")).toBe(false);
-      expect(isValidString("Hello World")).toBe(false);
+    test("should return true when there are no bracket characters", () => {
+      expect(isValidString("a")).toBe(true);
+      expect(isValidString("1")).toBe(true);
+      expect(isValidString(" ")).toBe(true);
+      expect(isValidString("Hello World")).toBe(true);
     });
 
-    test("should return false for brackets mixed with other characters", () => {
-      expect(isValidString("(a)")).toBe(false);
-      expect(isValidString("([1])")).toBe(false);
-      expect(isValidString("{Hello}")).toBe(false);
-      expect(isValidString("[{World}]")).toBe(false);
+    test("should return true for brackets mixed with other characters", () => {
+      expect(isValidString("(a)")).toBe(true);
+      expect(isValidString("([1])")).toBe(true);
+      expect(isValidString("{Hello}")).toBe(true);
+      expect(isValidString("[{World}]")).toBe(true);
     });
   });
 
