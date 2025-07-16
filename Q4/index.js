@@ -5,6 +5,7 @@ function isValidString(inputString) {
   // and "({[)]})" returns false
   //
   // an empty string "" also returns true
+  // non-bracket characters are ignored
 
   // Handle edge cases for non-string inputs
   if (typeof inputString !== "string") {
@@ -12,43 +13,31 @@ function isValidString(inputString) {
   }
 
   const stack = [];
-  const reference = {
+  const bracketPairs = {
     "(": ")",
     "{": "}",
     "[": "]",
   };
 
-  for (let char of inputString) {
-    if (
-      char !== "(" &&
-      char !== ")" &&
-      char !== "{" &&
-      char !== "}" &&
-      char !== "[" &&
-      char !== "]"
-    ) {
-      continue;
-    }
-    // if is an open bracket, push char into the stack
-    if (reference[char]) {
-      stack.push(char);
+  // Create a set of all closing brackets for faster lookup
+  const closingBrackets = new Set(Object.values(bracketPairs));
 
-      // if the stack is not empty and
-      // the current char is a closing bracket from the previous character in the stack,
-      // pop the character from the stack
-    } else if (
-      stack.length > 0 &&
-      reference[stack[stack.length - 1]] === char
-    ) {
-      stack.pop();
-    } else {
-      // for any other case, return false
-      return false;
+  for (let char of inputString) {
+    // If it's an opening bracket, push to stack
+    if (char in bracketPairs) {
+      stack.push(char);
     }
+    // If it's a closing bracket
+    else if (closingBrackets.has(char)) {
+      // If stack is empty or if the closing bracket doesn't match the last opening bracket
+      if (stack.length === 0 || bracketPairs[stack.pop()] !== char) {
+        return false;
+      }
+    }
+    // All other characters are ignored
   }
 
-  // the string was fully traversed.
-  // if the stack is empty, return true
+  // If stack is empty, all brackets were properly closed
   return stack.length === 0;
 }
 
