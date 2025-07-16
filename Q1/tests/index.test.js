@@ -38,7 +38,14 @@ describe("findDuplicates", () => {
   test("should work with objects by reference", () => {
     const obj1 = { id: 1 };
     const obj2 = { id: 2 };
-    expect(findDuplicates([obj1, obj2, obj1])).toEqual([obj1]);
+    expect(findDuplicates([obj1, obj2, obj1])).toEqual(['{"id":1}']);
+  });
+
+  test("should work with objects by reference", () => {
+    const obj1 = { id: 1 };
+    const obj2 = { id: 2 };
+    const obj3 = { id: 1 };
+    expect(findDuplicates([obj1, obj2, obj3])).toEqual(['{"id":1}']);
   });
 
   test("should handle complex nested structures", () => {

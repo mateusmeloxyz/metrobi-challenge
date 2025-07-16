@@ -1,3 +1,10 @@
+function isPlainObject(variable) {
+  return (
+    typeof variable === "object" &&
+    variable !== null &&
+    !Array.isArray(variable)
+  );
+}
 /**
  * Finds duplicate elements in an array.
  *
@@ -15,10 +22,11 @@ function findDuplicates(arr) {
   let duplicatesSet = new Set();
 
   for (let item of arr) {
-    if (seenItems.has(item)) {
-      duplicatesSet.add(item);
+    let jsonITEM = isPlainObject(item) ? JSON.stringify(item) : item;
+    if (seenItems.has(jsonITEM)) {
+      duplicatesSet.add(jsonITEM);
     } else {
-      seenItems.add(item);
+      seenItems.add(jsonITEM);
     }
   }
 
