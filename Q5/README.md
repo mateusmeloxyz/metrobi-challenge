@@ -59,6 +59,10 @@ For example, calculating the solution for 2 eggs and 100 floors:
 - Without memoization: Extremely slow or impractical
 - With memoization: Completes in milliseconds
 
+## An even better approach
+
+The performance can be improved even futher by using the binomial distribution to calculate the probability of the egg breaking, instead of using recursion or the memoized approach.
+
 ## Example Results
 
 | Eggs | Floors | Minimum Attempts |
