@@ -12,14 +12,16 @@ async function asyncCall(time) {
 }
 
 async function asyncCallArr(arr) {
-  let count = 1;
+  let count = 0;
+
+  console.log(new Date());
   for (let item of arr) {
-    const result = await resolveAfterNSeconds(count);
-    console.log(item);
-    console.log(result);
-    count = count * 2;
+    setTimeout(
+      () => console.log(item + " date time: " + new Date()),
+      2 ** count * 1000,
+    );
+    count++;
   }
 }
 
-asyncCall(1);
 asyncCallArr(["A", "B", "C", "D", "E"]);
