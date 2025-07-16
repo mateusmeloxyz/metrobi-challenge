@@ -1,8 +1,16 @@
-// A JS function that finds duplicate elements in an array
-//
-// This function takes an array of elements and returns an array of elements that are duplicates
-
+/**
+ * Finds duplicate elements in an array.
+ *
+ * @param {Array} arr - The input array to search for duplicates.
+ * @returns {Array} - An array containing all duplicate elements (with each duplicate appearing only once).
+ * @throws {TypeError} - If the input is not an array.
+ */
 function findDuplicates(arr) {
+  // Input validation
+  if (!Array.isArray(arr)) {
+    throw new TypeError("Input must be an array");
+  }
+
   let seenItems = new Set();
   let duplicatesSet = new Set();
 

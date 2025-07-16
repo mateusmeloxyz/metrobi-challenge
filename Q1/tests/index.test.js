@@ -51,4 +51,12 @@ describe("findDuplicates", () => {
     expect(findDuplicates([1, 1, 1, 1])).toEqual([1]);
     expect(findDuplicates(["a", "a", "a"])).toEqual(["a"]);
   });
+
+  test("should throw TypeError when input is not an array", () => {
+    expect(() => findDuplicates(null)).toThrow(TypeError);
+    expect(() => findDuplicates(undefined)).toThrow(TypeError);
+    expect(() => findDuplicates(123)).toThrow(TypeError);
+    expect(() => findDuplicates("string")).toThrow(TypeError);
+    expect(() => findDuplicates({ key: "value" })).toThrow(TypeError);
+  });
 });
