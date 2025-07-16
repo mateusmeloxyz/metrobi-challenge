@@ -1,4 +1,4 @@
-const { eggDrop } = require("./index");
+const { eggDrop } = require("../index");
 
 describe("Egg Drop Problem", () => {
   // Base cases

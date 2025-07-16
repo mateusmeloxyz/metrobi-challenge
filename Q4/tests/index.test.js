@@ -1,4 +1,4 @@
-const { isValidString } = require("./index");
+const { isValidString } = require("../index");
 
 /**
  * Unit tests for the isValidString function

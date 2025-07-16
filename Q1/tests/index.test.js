@@ -1,4 +1,4 @@
-const findDuplicates = require("./index"); // had trouble trying to import. Read more about later on https://jestjs.io/docs/ecmascript-modules
+const findDuplicates = require("../index"); // had trouble trying to import. Read more about later on https://jestjs.io/docs/ecmascript-modules
 
 describe("findDuplicates", () => {
   test("should return an empty array when given an empty array", () => {
