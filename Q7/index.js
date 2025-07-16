@@ -68,11 +68,11 @@ function getMaxValue(carrotTypes, capacity) {
   for (i = 1; i < carrotTypes.length + 1; i++) {
     for (j = 0; j <= capacity; j++) {
       if (carrotTypes[i - 1].weight > j) {
-        memo[i][j] = memo[i - 1][j];
+        memo[i][j] = memo[i - 1][j]; // while item weight is above current weight, don't put the item
       } else {
         memo[i][j] = Math.max(
-          memo[i - 1][j],
-          memo[i][j - carrotTypes[i - 1].weight] + carrotTypes[i - 1].price,
+          memo[i - 1][j], // considers not putting the current item
+          memo[i][j - carrotTypes[i - 1].weight] + carrotTypes[i - 1].price, // considers putting the current item
         );
       }
     }
